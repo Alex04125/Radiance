@@ -99,6 +99,7 @@ import json
 import pickle
 import numpy as np
 from sklearn.neural_network import MLPRegressor
+from sklearn.preprocessing import StandardScaler
 
 def train_model(input_file_path, output_file_path):
     # Load input data from the JSON file
@@ -109,15 +110,19 @@ def train_model(input_file_path, output_file_path):
     features = np.array(input_data['features'])
     labels = np.array(input_data['labels'])
 
-    # Initialize the model
-    model = MLPRegressor(hidden_layer_sizes=(2,), activation='logistic', max_iter=1000, random_state=42)
+    # Scale or normalize the input features
+    scaler = StandardScaler()
+    features_scaled = scaler.fit_transform(features)
+
+    # Initialize the model with adjusted hyperparameters
+    model = MLPRegressor(hidden_layer_sizes=(2,), activation='logistic', max_iter=1000, learning_rate_init=0.01, alpha=0.001, random_state=42)
 
     # Train the model
-    model.fit(features, labels)
+    model.fit(features_scaled, labels)
 
     # Save the trained model using pickle
     with open(output_file_path, 'wb') as output_file:
-        pickle.dump(model, output_file)
+        pickle.dump((model, scaler), output_file)
 
 if __name__ == "__main__":
     # Path to the input and output data JSON files
