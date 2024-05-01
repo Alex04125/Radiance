@@ -121,7 +121,7 @@ def train_model(input_file_path, output_file_path):
 
 if __name__ == "__main__":
     # Path to the input and output data JSON files
-    input_file_path = '/input_data/input.json'
+    input_file_path = '/input_file/input.json'
     output_file_path = '/output_data/model.pkl'
     
     # Train the model using input data and save the trained model
