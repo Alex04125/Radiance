@@ -89,3 +89,6 @@
 #     # Train the model using input data and save the trained model
 #     train_model(input_file_path, output_file_path)
 print("Qj mi kura")
+
+while True:
+    pass
