@@ -1,48 +1,5 @@
 # import json
 # import os
-
-# def calculate_sum_from_file(input_file_path):
-#     # Read input data from the JSON file
-#     with open(input_file_path, 'r') as input_file:
-#         input_data = json.load(input_file)
-    
-#     # Extract values of 'a' and 'b' from the input data
-#     a = input_data['a']
-#     b = input_data['b']
-    
-#     # Calculate the sum of 'a' and 'b'
-#     result = calculate_sum(a, b)
-#     return result
-
-# def calculate_sum(a, b):
-#     """
-#     Calculate the sum of two numbers.
-
-#     Parameters:
-#         a (float): The first number.
-#         b (float): The second number.
-
-#     Returns:
-#         float: The sum of a and b.
-#     """
-#     return a + b
-
-# if __name__ == "__main__":
-#     # Path to the input data JSON file
-#     input_file_path = '/input_file/input.json'
-    
-#     # Calculate the sum using input data from the JSON file
-#     result = calculate_sum_from_file(input_file_path)
-    
-#     # Path to the output file where the result will be saved
-#     output_file_path = '/output_data/output.json'
-    
-#     # Write the result to the output file
-#     with open(output_file_path, 'w') as output_file:
-#         json.dump({"result": result}, output_file)
-
-# import json
-# import os
 # import torch
 # import torch.nn as nn
 # import torch.optim as optim
@@ -95,39 +52,40 @@
 #     # Train the model using input data and save the trained model
 #     train_model(input_file_path, output_file_path)
 
-import json
-import pickle
-import numpy as np
-from sklearn.neural_network import MLPRegressor
-from sklearn.preprocessing import StandardScaler
+# import json
+# import pickle
+# import numpy as np
+# from sklearn.neural_network import MLPRegressor
+# from sklearn.preprocessing import StandardScaler
 
-def train_model(input_file_path, output_file_path):
-    # Load input data from the JSON file
-    with open(input_file_path, 'r') as input_file:
-        input_data = json.load(input_file)
+# def train_model(input_file_path, output_file_path):
+#     # Load input data from the JSON file
+#     with open(input_file_path, 'r') as input_file:
+#         input_data = json.load(input_file)
     
-    # Extract features and labels from the input data
-    features = np.array(input_data['features'])
-    labels = np.array(input_data['labels'])
+#     # Extract features and labels from the input data
+#     features = np.array(input_data['features'])
+#     labels = np.array(input_data['labels'])
 
-    # Scale or normalize the input features
-    scaler = StandardScaler()
-    features_scaled = scaler.fit_transform(features)
+#     # Scale or normalize the input features
+#     scaler = StandardScaler()
+#     features_scaled = scaler.fit_transform(features)
 
-    # Initialize the model with adjusted hyperparameters
-    model = MLPRegressor(hidden_layer_sizes=(2,), activation='logistic', max_iter=1000, learning_rate_init=0.01, alpha=0.001, random_state=42)
+#     # Initialize the model with adjusted hyperparameters
+#     model = MLPRegressor(hidden_layer_sizes=(2,), activation='logistic', max_iter=1000, learning_rate_init=0.01, alpha=0.001, random_state=42)
 
-    # Train the model
-    model.fit(features_scaled, labels)
+#     # Train the model
+#     model.fit(features_scaled, labels)
 
-    # Save the trained model using pickle
-    with open(output_file_path, 'wb') as output_file:
-        pickle.dump((model, scaler), output_file)
+#     # Save the trained model using pickle
+#     with open(output_file_path, 'wb') as output_file:
+#         pickle.dump((model, scaler), output_file)
 
-if __name__ == "__main__":
-    # Path to the input and output data JSON files
-    input_file_path = '/input_file/input.json'
-    output_file_path = '/output_data/model.pkl'
+# if __name__ == "__main__":
+#     # Path to the input and output data JSON files
+#     input_file_path = '/input_file/input.json'
+#     output_file_path = '/output_data/model.pkl'
     
-    # Train the model using input data and save the trained model
-    train_model(input_file_path, output_file_path)
+#     # Train the model using input data and save the trained model
+#     train_model(input_file_path, output_file_path)
+print("Qj mi kura")
