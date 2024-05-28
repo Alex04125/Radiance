@@ -129,7 +129,7 @@ class GPRModel():
 
 if __name__ == "__main__":
     # Define file paths
-    input_file_path = '/shared_data/Vechtstromen.json'  # Input data file
+    input_file_path = '/shared_data/input.json'  # Input data file
     output_file_path = '/shared_data/model.pkl'  # Output model file
 
     # Train the model and save
