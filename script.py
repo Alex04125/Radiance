@@ -44,7 +44,6 @@ import numpy as np
 import math
 import json
 import pandas as pd
-import read_wl_data as rdwl
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import Matern, RBF, ConstantKernel
 from sklearn.model_selection import GridSearchCV
@@ -162,6 +161,8 @@ if __name__ == "__main__":
     # Define file paths
     input_file_path = '/shared_data/input.json'  # Input data file
     output_file_path = '/shared_data/model.pkl'  # Output model file
+    # input_file_path = '/training.json'  # Input data file
+    # output_file_path = '/model.pkl'  # Output model file
 
     # Train the model and save
     with open(input_file_path, 'r') as input_file:
