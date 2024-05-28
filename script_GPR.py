@@ -69,8 +69,6 @@ def hyperparameters_training(dict_sensors,bounds_constant_value=np.logspace(-1, 
         model = GaussianProcessRegressor(kernel=kernel)
     def objective(params):
         k1, k2 = params
-        # Entraîner le modèle avec les paramètres k1 et k2 sur tous les ensembles de données
-        # Calculez la performance moyenne (par exemple, la MSE) sur les ensembles de données
         mse_total = 0
         for (A_train, Z_train) in all_train:
             model.kernel.k1.constant_value = k1
@@ -79,15 +77,11 @@ def hyperparameters_training(dict_sensors,bounds_constant_value=np.logspace(-1, 
             Z_pred = model.predict(A_train)
 
             mse_total += mean_squared_error(Z_train, Z_pred)
-        # Retourne la MSE moyenne sur tous les ensembles de données
         return mse_total / len(all_train)
 
-    # Définir les limites des paramètres
     param_space = [Real(bounds_constant_value[0], bounds_constant_value[-1], name='k1'),
                    Real(bounds_length_scale[0], bounds_length_scale[-1], name='k2')]
-    # Effectuer l'optimisation bayésienne
     result = gp_minimize(objective, param_space, n_calls=20, random_state=42)
-    # Les meilleurs paramètres seront dans result.x
     best_k1, best_k2 = result.x
     kernel = matern_kernel(best_k1,best_k2,1/2)
     model = GaussianProcessRegressor(kernel=kernel)
@@ -95,10 +89,6 @@ def hyperparameters_training(dict_sensors,bounds_constant_value=np.logspace(-1, 
 
 def matern_kernel(constant_value,length_scale,nu):
     return ConstantKernel(constant_value=constant_value)*Matern(length_scale=length_scale,nu = nu)
-
-# def save_gpr_model(model,output_path):
-#     with open(output_path, 'wb') as file:
-#         pickle.dump(model, file)
 
 
 
@@ -139,7 +129,7 @@ class GPRModel():
 
 if __name__ == "__main__":
     # Define file paths
-    input_file_path = '/shared_data/input.json'  # Input data file
+    input_file_path = '/shared_data/Vechtstromen.json'  # Input data file
     output_file_path = '/shared_data/model.pkl'  # Output model file
 
     # Train the model and save
