@@ -117,11 +117,7 @@ class GPRModel:
             pickle.dump(self, file)
 
 if __name__ == "__main__":
-    # MODEL_PATH = 'model.pkl'
-    # INPUT_JSON_PATH = 'prediction_data.json'
-    # OUTPUT_JSON_PATH = 'output.json'
-        # Load the trained model
-    
+        
     with open(MODEL_PATH, 'rb') as file:
         model = pickle.load(file)
 
