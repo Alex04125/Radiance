@@ -39,6 +39,9 @@ if __name__ == "__main__":
     MODEL_PATH = '/app/model.pkl'  # Path to the saved model
     INPUT_JSON_PATH = '/shared_data/vs/input.json'  # Path to the input JSON file
     OUTPUT_JSON_PATH = '/shared_data/vs/output.json'  # Path to the output JSON file
+    # MODEL_PATH = 'C:/Users/nechevah/DTIC Project/Implementation/VS-DTIC MVP/script_dummy/model.pkl'  # Path to the saved model
+    # INPUT_JSON_PATH = 'C:/Users/nechevah/DTIC Project/Implementation/VS-DTIC MVP/script_dummy/inherence.json'  # Path to the input JSON file
+    # OUTPUT_JSON_PATH = 'output.json'  # Path to the output JSON file
 
     # Run inference and save predictions
     infer(MODEL_PATH, INPUT_JSON_PATH, OUTPUT_JSON_PATH)
